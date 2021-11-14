@@ -24,7 +24,9 @@ function MarioGame() {
     let joombas=[];
     let powerUps=[];
     let bullets=[];
+    let bullets2=[];
     let bulletFlag = false;
+    let bullet2Flag = false;
     let joomba_bullets = [];
     let keys=[];
   
@@ -49,6 +51,7 @@ function MarioGame() {
         goombas = [];
         powerUps = [];
         bullets = [];
+        bullets2 = [];
         joomba_bullets = [];
     
         gameCanvas.setWidth(viewPort);
@@ -125,6 +128,11 @@ function MarioGame() {
         for (let i = 0; i < bullets.length; i++) {
             bullets[i].draw();
             bullets[i].update();
+        }
+        
+        for (let i = 0; i < bullets2.length; i++) {
+          bullets2[i].draw();
+          bullets2[i].update();
         }
 
         for (let i = 0; i < joomba_bullets.length; i++) {
@@ -598,6 +606,32 @@ function MarioGame() {
             }
           }
         }
+        
+        
+        for (var i = 0; i < goombas.length; i++) {
+          for (var j = 0; j < bullets2.length; j++) {
+            if (goombas[i] && goombas[i].state != 'dead') {
+              //check for collision only if goombas exist and is not dead
+              var collWithBullet = that.collisionCheck(goombas[i], bullets2[j]);
+            }
+    
+            if (collWithBullet) {
+              bullets2[j] = null;
+              bullets2.splice(j, 1);
+    
+              goombas[i].state = 'deadFromBullet';
+    
+              score.totalScore += 1000;
+              score.updateTotalScore();
+    
+              //sound when enemy dies
+              gameSound.play('killEnemy');
+            }
+          }
+        }
+        
+        
+        
     };
     
     this.wallCollision = function() {
@@ -652,6 +686,26 @@ function MarioGame() {
             //sound when mario jumps
             gameSound.play('jump');
           }
+          
+          
+          
+          if (!bullet2Flag) {
+            bullet2Flag = true;
+            var bullet2 = new Bullet2();
+            
+            bullet2.init(mario.x, mario.y);
+            bullets2.push(bullet2);
+    
+            //bullet sound
+            gameSound.play('bullet');
+    
+            setTimeout(function() {
+              bullet2Flag = false; //only lets mario fire bullet after 500ms
+            }, 500);
+          }
+          
+          
+          
         }
     
         if (keys[39]) {
