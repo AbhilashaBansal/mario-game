@@ -50,7 +50,7 @@ function Loader() {
             images[key].onload = function() {
                 loadedImages++;
                 percentage = Math.floor(loadedImages * 100 / totalImages);
-                console.log(percentage);
+                // console.log(percentage);
         
                 view.setHTML(loadingPercentage, percentage + '%'); //displaying percentage
         
