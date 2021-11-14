@@ -2,6 +2,12 @@
     font-family: SuperMario256;
     src: url('../fonts/SuperMario256.ttf');
 }
+
+body {
+  background: url('http://www.lovethispic.com/uploaded_images/82943-Anime-Nature.gif?1');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
   
 .loading-percentage {
     font-size: 60px;
@@ -67,44 +73,44 @@
 }
 
   
-  .score-wrapper {
-    padding-left: 40px;
-    width: 1240px;
-    margin: 0 auto;
+.score-wrapper {
+    width: 1280px;
+    margin: auto;
     height: 50px;
     display: none;
-    border: 1px solid black;
-    border-bottom: none;
+    border: 2px solid black;
+    /* border-bottom: none; */
     line-height: 50px;
     font-size: 20px;
-    background-color: #add1f3;
+    background-color: #2783da;
     font-family: SuperMario256;
-    /*color: #ffffff;*/
-    color:black;
-  }
+    color: #ffffff;
+    /* color:black; */
+}
   
-  .life-count {
+.life-count {
     background: url('../images/mario-head.png') left center no-repeat;
     width: 100px;
     float: left;
     padding-left: 40px;
-  }
+}
   
-  .coin-score {
+.coin-score {
     background: url('../images/coin.png') left center no-repeat;
     width: 150px;
     float: left;
     padding-left: 40px;
-  }
+}
   
-  .level-num {
+.level-num {
     width: 150px;
     float: left;
-  }
+}
   
-  .total-score {
+.total-score {
     float: left;
-  }
+}
+
   .cell {
     width: 31px;
     height: 31px;
@@ -119,14 +125,14 @@
     opacity: 0.5;
   }
   
-  .element-wrapper {
+.element-wrapper {
     width: 1280px;
     height: 130px;
     background: #d2d2d2;
     margin: 0 auto;
     border: 1px solid black;
     display: none;
-  }
+}
   
   .platform {
     width: 31px;

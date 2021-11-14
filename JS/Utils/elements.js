@@ -1,7 +1,7 @@
 function Element() {
-  var gameUI = GameUI.getInstance();
+  let gameCanvas = GameCanvas.getInstance();
 
-  var element = new Image();
+  let element = new Image();
   element.src = 'images/elements.png';
 
   this.type;
@@ -12,7 +12,7 @@ function Element() {
   this.width = 32;
   this.height = 32;
 
-  var that = this;
+  let that = this;
 
   this.platform = function() {
     that.type = 1;
@@ -65,6 +65,6 @@ function Element() {
   };
 
   this.draw = function() {
-    gameUI.draw(element, that.sX, that.sY, that.width, that.height, that.x, that.y, that.width, that.height);
+    gameCanvas.draw(element, that.sX, that.sY, that.width, that.height, that.x, that.y, that.width, that.height);
   };
 }
